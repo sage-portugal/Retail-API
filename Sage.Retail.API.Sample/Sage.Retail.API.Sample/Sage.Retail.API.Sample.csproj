@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{525FFBEB-1D09-44A0-A8F8-3A481B7FE818}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sage.Retail.API.Sample</RootNamespace>
+    <AssemblyName>Sage.Retail.API.Sample</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icone_Sage_Retail_C.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\ADODB.dll</HintPath>
+    </Reference>
+    <Reference Include="DAO">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\DAO.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="DartMail">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\DartMail.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MSScriptControl">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\MSScriptControl.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MSXML2">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\MSXML2.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="POPLib">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\POPLib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLAPIPRTL16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLAPIPRTL16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLBase16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLBase16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLBL16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLBL16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLCore16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLCore16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLData16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLData16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLDL16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLDL16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLDP16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLDP16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLLocalize16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLLocalize16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLPrint16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLPrint16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLQS16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLQS16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLRV16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLRV16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLSystem16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLSystem16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLUIBase">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLUIBase.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLUtil16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLUtil16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SageCEMV15">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SageCEMV15.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SageCoreComm10">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SageCoreComm10.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SageCoreUtil10">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SageCoreUtil10.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Scripting">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\Scripting.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SGCOAPIPRTL16">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SGCOAPIPRTL16.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VBA">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\VBA.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VBRUN">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\VBRUN.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="XceedZipLib">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XceedZipLib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="XtremeDockingPane">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XtremeDockingPane.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="XtremeSuiteControls">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XtremeSuiteControls.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="XtremeTaskPanel">
+      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XtremeTaskPanel.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="fAPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAPI.Designer.cs">
+      <DependentUpon>fAPI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTenderCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTenderCheck.Designer.cs">
+      <DependentUpon>FormTenderCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RTLAPIEngine.cs" />
+    <Compile Include="UIUtils.cs" />
+    <EmbeddedResource Include="fAPI.resx">
+      <DependentUpon>fAPI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTenderCheck.resx">
+      <DependentUpon>FormTenderCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icone_Sage_Retail_C.ico" />
+    <None Include="Resources\logo_sage_altaRes.png" />
+    <None Include="Resources\stamp_Void.bmp" />
+    <None Include="Resources\nome_produto_sage_retail.png" />
+    <None Include="Resources\splash_retail_base_altaRes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
