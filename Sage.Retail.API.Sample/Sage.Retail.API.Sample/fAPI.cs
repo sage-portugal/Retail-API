@@ -54,6 +54,10 @@ namespace Sage.Retail.API.Sample {
         public fApi() {
             InitializeComponent();
 
+            if( cboApplication.Items.Count > 0) {
+                cboApplication.SelectedIndex = 0;
+            }
+
             RTLAPIEngine.APIStarted += RTLAPIEngine_APIStarted;
             RTLAPIEngine.APIStopped += RTLAPIEngine_APIStopped;
         }
@@ -75,6 +79,8 @@ namespace Sage.Retail.API.Sample {
             btnGet.Enabled = false;
             btnClear.Enabled = false;
 
+            cboApplication.Enabled = true;
+
             this.Cursor = Cursors.Default;
         }
 
@@ -83,6 +89,7 @@ namespace Sage.Retail.API.Sample {
 
             btnStopAPI.Enabled = true;
             btnStartAPI.Enabled = false;
+            cboApplication.Enabled = false;
 
             btnInsert.Enabled = true;
             btnUpdate.Enabled = true;
@@ -256,7 +263,8 @@ namespace Sage.Retail.API.Sample {
                 RTLAPIEngine.WarningMessage += RTLAPIEngine_WarningMessage;
                 RTLAPIEngine.Message += RTLAPIEngine_Message;
 
-                RTLAPIEngine.Initialize( txtRTLCompany.Text, chkAPIDebugMode.Checked );
+                var apiKind = (RTLAPIEngine.ApplicationEnum)(cboApplication.SelectedIndex + 1);
+                RTLAPIEngine.Initialize( apiKind, txtRTLCompany.Text, chkAPIDebugMode.Checked );
             }
             catch (Exception ex) {
                 this.Cursor = Cursors.Default;

@@ -84,14 +84,14 @@
     <Reference Include="ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\ADODB.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\ADODB.dll</HintPath>
     </Reference>
     <Reference Include="DAO">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\DAO.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\DAO.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="DartMail">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\DartMail.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\DartMail.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.CSharp">
@@ -99,91 +99,95 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="MSScriptControl">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\MSScriptControl.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\MSScriptControl.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MSXML2">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\MSXML2.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\MSXML2.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="POPLib">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\POPLib.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\POPLib.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLAPIPRTL16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLAPIPRTL16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLAPIPRTL16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLBase16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLBase16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLBase16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLBL16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLBL16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLBL16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLCore16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLCore16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLCore16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLData16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLData16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLData16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLDL16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLDL16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLDL16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLDP16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLDP16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLDP16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLLocalize16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLLocalize16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLLocalize16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLPrint16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLPrint16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLPrint16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLQS16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLQS16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLQS16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLRV16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLRV16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLRV16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLSystem16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLSystem16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLSystem16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLUIBase">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLUIBase.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLUIBase.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RTLUpdate16">
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLUpdate16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RTLUtil16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLUtil16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\RTLUtil16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="SageCEMV15">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SageCEMV15.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SageCEMV15.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="SageCoreComm10">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SageCoreComm10.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SageCoreComm10.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="SageCoreUtil10">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SageCoreUtil10.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SageCoreUtil10.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Scripting">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\Scripting.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\Scripting.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="SGCOAPIPRTL16">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SGCOAPIPRTL16.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\SGCOAPIPRTL16.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
@@ -196,27 +200,27 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="VBA">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\VBA.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\VBA.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="VBRUN">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\VBRUN.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\VBRUN.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="XceedZipLib">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XceedZipLib.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XceedZipLib.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="XtremeDockingPane">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XtremeDockingPane.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XtremeDockingPane.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="XtremeSuiteControls">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XtremeSuiteControls.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XtremeSuiteControls.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="XtremeTaskPanel">
-      <HintPath>..\..\..\..\..\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XtremeTaskPanel.dll</HintPath>
+      <HintPath>..\..\..\..\Dev\POS\SystemPOS\Releases\2017.02.06\Build\PPOS\COMMONFILES\SAGE\2070\RTL2016\Interops\XtremeTaskPanel.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
   </ItemGroup>

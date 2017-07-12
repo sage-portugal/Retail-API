@@ -1,5 +1,4 @@
-﻿using RTLAPIPRTL16;
-using RTLData16;
+﻿using RTLData16;
 using RTLDL16;
 using RTLPrint16;
 using RTLSystem16;
@@ -10,6 +9,12 @@ using System.Text;
 using System.Windows.Forms;
 
 public static class RTLAPIEngine {
+    public enum ApplicationEnum {
+        None = 0,
+        SageRetail,
+        SageGC
+    }
+
     public class MessageEventArgs : EventArgs {
         public string Prompt { get; set; }
         public MessageBoxButtons Buttons { get; set; }
@@ -84,18 +89,14 @@ public static class RTLAPIEngine {
     public static bool APIInitialized { get { return apiInitialized; } }
 
     // Colocar SEMPRE ao nivel do módulo/class para não ser descarregado indevidamente
-#if SGCOAPI
-    private static SystemStarter systemStarter = null;
-#else
-    private static SystemStarter systemStarter = null;
-#endif
+    private static dynamic systemStarter = null;
 
     /// <summary>basMain
     /// Inicializa a API do Retail
     /// Lança uma exceção se falhar
     /// </summary>
     /// <param name="companyId">Identificador da empresa a Abrir</param>
-    public static void Initialize(string companyId, bool debugMode ) {
+    public static void Initialize( ApplicationEnum apiKind, string companyId, bool debugMode ) {
         apiInitialized = false;
 
         //
@@ -113,11 +114,15 @@ public static class RTLAPIEngine {
         rtlPrintGlobals = new RTLPrint16.GlobalSettings();
         rtlBLGlobals = new RTLBL16.GlobalSettings();
         //
-#if SGCOAPI
-        systemStarter = new SystemStarter();
-#else
-        systemStarter = new SystemStarter();
-#endif
+        switch (apiKind) {
+            case ApplicationEnum.SageRetail:
+                systemStarter = new RTLAPIPRTL16.SystemStarter();
+                break;
+
+            case ApplicationEnum.SageGC:
+                systemStarter = new SGCOAPIPRTL16.SystemStarter();
+                break;
+        }
         systemStarter.DebugMode = debugMode;
         if (systemStarter.Initialize(companyId) != 0) {
             string initError = systemStarter.InitializationError;

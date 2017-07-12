@@ -81,6 +81,8 @@
             this.Label16 = new System.Windows.Forms.Label();
             this.Label13 = new System.Windows.Forms.Label();
             this.tabBuySaleTransaction = new System.Windows.Forms.TabPage();
+            this.txtPaymentID = new System.Windows.Forms.TextBox();
+            this.lblPaymentID = new System.Windows.Forms.Label();
             this.txtTenderID = new System.Windows.Forms.TextBox();
             this.lblTenderID = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -235,14 +237,13 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cboApplication = new System.Windows.Forms.ComboBox();
             this._Bar1_1 = new System.Windows.Forms.Label();
             this.btnStopAPI = new System.Windows.Forms.Button();
             this.btnStartAPI = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnlSageLogo = new System.Windows.Forms.Panel();
             this.pbCSharp = new System.Windows.Forms.PictureBox();
-            this.lblPaymentID = new System.Windows.Forms.Label();
-            this.txtPaymentID = new System.Windows.Forms.TextBox();
             this.tabEntities.SuspendLayout();
             this.tabItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -1064,6 +1065,26 @@
             this.tabBuySaleTransaction.Size = new System.Drawing.Size(930, 450);
             this.tabBuySaleTransaction.TabIndex = 3;
             this.tabBuySaleTransaction.Text = "Compra/Venda/Stock";
+            // 
+            // txtPaymentID
+            // 
+            this.txtPaymentID.Location = new System.Drawing.Point(607, 124);
+            this.txtPaymentID.Name = "txtPaymentID";
+            this.txtPaymentID.Size = new System.Drawing.Size(72, 23);
+            this.txtPaymentID.TabIndex = 346;
+            // 
+            // lblPaymentID
+            // 
+            this.lblPaymentID.BackColor = System.Drawing.Color.Transparent;
+            this.lblPaymentID.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblPaymentID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaymentID.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPaymentID.Location = new System.Drawing.Point(604, 106);
+            this.lblPaymentID.Name = "lblPaymentID";
+            this.lblPaymentID.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblPaymentID.Size = new System.Drawing.Size(85, 15);
+            this.lblPaymentID.TabIndex = 345;
+            this.lblPaymentID.Text = "Tipo Pag.";
             // 
             // txtTenderID
             // 
@@ -3126,6 +3147,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.cboApplication);
             this.panel3.Controls.Add(this._Bar1_1);
             this.panel3.Controls.Add(this.btnStopAPI);
             this.panel3.Controls.Add(this.btnStartAPI);
@@ -3134,6 +3156,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1091, 46);
             this.panel3.TabIndex = 11;
+            // 
+            // cboApplication
+            // 
+            this.cboApplication.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboApplication.FormattingEnabled = true;
+            this.cboApplication.Items.AddRange(new object[] {
+            "Sage Retail API",
+            "Sage GC API"});
+            this.cboApplication.Location = new System.Drawing.Point(6, 10);
+            this.cboApplication.Name = "cboApplication";
+            this.cboApplication.Size = new System.Drawing.Size(191, 23);
+            this.cboApplication.TabIndex = 181;
             // 
             // _Bar1_1
             // 
@@ -3150,7 +3184,7 @@
             // btnStopAPI
             // 
             this.btnStopAPI.Enabled = false;
-            this.btnStopAPI.Location = new System.Drawing.Point(111, 8);
+            this.btnStopAPI.Location = new System.Drawing.Point(309, 6);
             this.btnStopAPI.Name = "btnStopAPI";
             this.btnStopAPI.Size = new System.Drawing.Size(99, 29);
             this.btnStopAPI.TabIndex = 10;
@@ -3160,7 +3194,7 @@
             // 
             // btnStartAPI
             // 
-            this.btnStartAPI.Location = new System.Drawing.Point(5, 8);
+            this.btnStartAPI.Location = new System.Drawing.Point(204, 6);
             this.btnStartAPI.Name = "btnStartAPI";
             this.btnStartAPI.Size = new System.Drawing.Size(99, 29);
             this.btnStartAPI.TabIndex = 9;
@@ -3202,26 +3236,6 @@
             this.pbCSharp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCSharp.TabIndex = 305;
             this.pbCSharp.TabStop = false;
-            // 
-            // lblPaymentID
-            // 
-            this.lblPaymentID.BackColor = System.Drawing.Color.Transparent;
-            this.lblPaymentID.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblPaymentID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaymentID.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPaymentID.Location = new System.Drawing.Point(604, 106);
-            this.lblPaymentID.Name = "lblPaymentID";
-            this.lblPaymentID.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblPaymentID.Size = new System.Drawing.Size(85, 15);
-            this.lblPaymentID.TabIndex = 345;
-            this.lblPaymentID.Text = "Tipo Pag.";
-            // 
-            // txtPaymentID
-            // 
-            this.txtPaymentID.Location = new System.Drawing.Point(607, 124);
-            this.txtPaymentID.Name = "txtPaymentID";
-            this.txtPaymentID.Size = new System.Drawing.Size(72, 23);
-            this.txtPaymentID.TabIndex = 346;
             // 
             // fApi
             // 
@@ -3509,6 +3523,7 @@
         private System.Windows.Forms.TextBox txtTenderID;
         private System.Windows.Forms.TextBox txtPaymentID;
         private System.Windows.Forms.Label lblPaymentID;
+        private System.Windows.Forms.ComboBox cboApplication;
     }
 }
 
