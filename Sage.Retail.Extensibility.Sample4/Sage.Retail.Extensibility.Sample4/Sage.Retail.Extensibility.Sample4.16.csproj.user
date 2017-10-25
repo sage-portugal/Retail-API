@@ -2,5 +2,10 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
+    <StartProgram>C:\Dev\POS\SystemPOS\Releases\2017.03.008\Source\SRC.EXE\Sage.Retail.PRTL.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Dev\POS\SystemPOS\Releases\2017.03.008\Source\SRC.EXE\Sage.Retail.PRTL.exe</StartProgram>
   </PropertyGroup>
 </Project>
