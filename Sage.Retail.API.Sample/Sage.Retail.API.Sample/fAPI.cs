@@ -520,7 +520,8 @@ namespace Sage.Retail.API.Sample {
         /// </summary>
         /// <param name="itemId"></param>
         private void ItemUpdate( string itemId ) {
-            var myItem = RTLAPIEngine.DSOCache.ItemProvider.GetItem(itemId, systemSettings.BaseCurrency);
+            // Ler sempre todo o objeto ITEM
+            var myItem = RTLAPIEngine.DSOCache.ItemProvider.GetItem(itemId, systemSettings.BaseCurrency, false);
             if (myItem != null) {
                 myItem.Description = txtItemDescription.Text;
                 myItem.ShortDescription = txtItemShortDescription.Text;
@@ -555,8 +556,8 @@ namespace Sage.Retail.API.Sample {
             else {
                 //
                 ItemClear(false);
-                //Ler o artigo da BD na moeda base
-                var item = itemProvider.GetItem(itemId, systemSettings.BaseCurrency);
+                //Ler o artigo da BD na moeda base - carregar sempre o objeto completo
+                var item = itemProvider.GetItem(itemId, systemSettings.BaseCurrency, false);
 
                 if (item != null) {
                     txtItemId.Text = item.ItemID;

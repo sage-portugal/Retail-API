@@ -1,8 +1,3 @@
-C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.csprojResolveAssemblyReference.cache
-C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.fApi.resources
-C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.FormTenderCheck.resources
-C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.Properties.Resources.resources
-C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.csproj.GenerateResource.Cache
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\Sage.Retail.API.Sample.exe
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\Sage.Retail.API.Sample.pdb
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\ADODB.dll
@@ -41,5 +36,10 @@ C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debu
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\stdole.dll
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\Microsoft.StdFormat.dll
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\MSDATASRC.dll
+C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.csprojResolveAssemblyReference.cache
+C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.fApi.resources
+C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.FormTenderCheck.resources
+C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.Properties.Resources.resources
+C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.csproj.GenerateResource.Cache
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.exe
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.pdb
