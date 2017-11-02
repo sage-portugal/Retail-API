@@ -54,7 +54,9 @@ namespace Sage.Retail.API.Sample {
         public fApi() {
             InitializeComponent();
 
-            if( cboApplication.Items.Count > 0) {
+            txtRTLCompany.Text = Properties.Settings.Default.CompanyId;
+
+            if ( cboApplication.Items.Count > 0) {
                 cboApplication.SelectedIndex = 0;
             }
 
@@ -273,6 +275,11 @@ namespace Sage.Retail.API.Sample {
         }
 
         private void fApi_FormClosed(object sender, FormClosedEventArgs e) {
+            // Guardar a empresa de testes
+            Properties.Settings.Default.CompanyId = txtRTLCompany.Text;
+            Properties.Settings.Default.Save();
+            //
+            // Terminar a API e sair
             RTLAPIEngine.Terminate();
             Application.Exit();
         }
@@ -464,7 +471,7 @@ namespace Sage.Retail.API.Sample {
 
                 //// Descomentar para criar COR e adicionar ao artigo
                 //// Criar nova côr na base de dados.
-                //var newColorId = dsoCache.ColorProvider.GetNewID();
+                //var newColorId = dsoCache.ColorProvider.GetNewId();
                 //var colorCode = System.Drawing.Color.Blue.B << 32 + System.Drawing.Color.Blue.G << 16 + System.Drawing.Color.Blue.R;
                 //var newColor = new RTLBase16.Color() {
                 //    ColorCode = colorCode,
@@ -484,7 +491,7 @@ namespace Sage.Retail.API.Sample {
 
                 //// Descomentar para criar um novo tamanho e adicionar ao artigo
                 //// Criar um tamanho nov
-                //var newSizeID = dsoCache.SizeProvider.GetNewID();
+                //var newSizeID = dsoCache.SizeProvider.GetNewId();
                 //var newSize = new RTLBase16.Size() {
                 //    Description = "Size " + newSizeID.ToString(),
                 //    SizeID = newSizeID,
@@ -498,9 +505,22 @@ namespace Sage.Retail.API.Sample {
                 //    Units = 1
                 //};
                 //newItem.Sizes.Add(newItemSize);
+                ////
+                //// Adicionar um preço ao tamanho
+                //myPrice = newItem.SalePrice[1, newSizeID];
+                //// Para ser diferente, vamos colocar este preço com mais 10%
+                //myPrice.TaxIncludedPrice = (double)numItemPriceTaxIncluded.Value * 1.10;
+                //myPrice.UnitPrice = RTLAPIEngine.DSOCache.TaxesProvider.GetItemNetPrice(
+                //                                    myPrice.TaxIncludedPrice,
+                //                                    newItem.TaxableGroupID,
+                //                                    systemSettings.SystemInfo.DefaultCountryID,
+                //                                    systemSettings.SystemInfo.TaxRegionID);
+                ////NOTA: A linha seguinte só é necessário se for um novo preço. Se já existe, não adicionar o preço à coleção. Neste exemplo criamos um tamanho novo por isso o preço também é novo
+                //newItem.SalePrice.Add(myPrice);
                 //
                 // Gravar
                 dsoCache.ItemProvider.Save(newItem, newItem.ItemID, true);
+                
             }
         }
 

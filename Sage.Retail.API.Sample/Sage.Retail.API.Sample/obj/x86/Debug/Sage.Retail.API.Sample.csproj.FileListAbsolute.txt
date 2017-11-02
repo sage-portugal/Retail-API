@@ -43,3 +43,4 @@ C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debu
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.csproj.GenerateResource.Cache
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.exe
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.pdb
+C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\Sage.Retail.API.Sample.exe.config
