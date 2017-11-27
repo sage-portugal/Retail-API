@@ -44,3 +44,13 @@ C:\git\Retail-API.git\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibilit
 C:\git\Retail-API.git\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.4.16.dll
 C:\git\Retail-API.git\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.4.16.pdb
 C:\git\Retail-API.git\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\bin\x86\Debug\RTLSAFTX16.dll
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.Sample4.16.csproj.ResolveComReference.cache
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\RTLExtenderSample.FormItem.resources
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\RTLExtenderSample.FormProps.resources
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.Sample4.16.csproj.GenerateResource.Cache
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.4.16.dll
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.4.16.pdb
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\bin\x86\Debug\Sage.Retail.Extensibility.4.16.dll
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\bin\x86\Debug\Sage.Retail.Extensibility.4.16.pdb
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\bin\x86\Debug\Sage.Retail.Extensibility.4.16.tlb
+C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.Sample4.16.csprojResolveAssemblyReference.cache
