@@ -225,6 +225,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fabricator.cs" />
     <Compile Include="fAPI.cs">
       <SubType>Form</SubType>
     </Compile>
