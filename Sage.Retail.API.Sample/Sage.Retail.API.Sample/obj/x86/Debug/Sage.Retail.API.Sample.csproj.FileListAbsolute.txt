@@ -44,3 +44,14 @@ C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debu
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.exe
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.pdb
 C:\git\Retail-API.git\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\Sage.Retail.API.Sample.exe.config
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\Sage.Retail.API.Sample.exe.config
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\Sage.Retail.API.Sample.exe
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\Sage.Retail.API.Sample.pdb
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\ADODB.dll
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\bin\x86\Debug\Microsoft.CSharp.dll
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.fApi.resources
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.FormTenderCheck.resources
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.Properties.Resources.resources
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.csproj.GenerateResource.Cache
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.exe
+C:\Users\jfs\Source\Repos\Retail-API\Sage.Retail.API.Sample\Sage.Retail.API.Sample\obj\x86\Debug\Sage.Retail.API.Sample.pdb
