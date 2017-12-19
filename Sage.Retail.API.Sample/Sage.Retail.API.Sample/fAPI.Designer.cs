@@ -81,6 +81,15 @@
             this.Label16 = new System.Windows.Forms.Label();
             this.Label13 = new System.Windows.Forms.Label();
             this.tabBuySaleTransaction = new System.Windows.Forms.TabPage();
+            this.btnRefreshGridLines = new System.Windows.Forms.Button();
+            this.rbTransStockDecompose = new System.Windows.Forms.RadioButton();
+            this.rbTransStockCompose = new System.Windows.Forms.RadioButton();
+            this.dataGridItemLines = new System.Windows.Forms.DataGridView();
+            this.WarehouseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPaymentID = new System.Windows.Forms.TextBox();
             this.lblPaymentID = new System.Windows.Forms.Label();
             this.txtTenderID = new System.Windows.Forms.TextBox();
@@ -254,6 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCustomerId)).BeginInit();
             this.tabSupplier.SuspendLayout();
             this.tabBuySaleTransaction.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridItemLines)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabTransModules.SuspendLayout();
@@ -1008,6 +1018,10 @@
             // tabBuySaleTransaction
             // 
             this.tabBuySaleTransaction.BackColor = System.Drawing.Color.White;
+            this.tabBuySaleTransaction.Controls.Add(this.btnRefreshGridLines);
+            this.tabBuySaleTransaction.Controls.Add(this.rbTransStockDecompose);
+            this.tabBuySaleTransaction.Controls.Add(this.rbTransStockCompose);
+            this.tabBuySaleTransaction.Controls.Add(this.dataGridItemLines);
             this.tabBuySaleTransaction.Controls.Add(this.txtPaymentID);
             this.tabBuySaleTransaction.Controls.Add(this.lblPaymentID);
             this.tabBuySaleTransaction.Controls.Add(this.txtTenderID);
@@ -1065,6 +1079,98 @@
             this.tabBuySaleTransaction.Size = new System.Drawing.Size(930, 450);
             this.tabBuySaleTransaction.TabIndex = 3;
             this.tabBuySaleTransaction.Text = "Compra/Venda/Stock";
+            // 
+            // btnRefreshGridLines
+            // 
+            this.btnRefreshGridLines.Location = new System.Drawing.Point(522, 415);
+            this.btnRefreshGridLines.Name = "btnRefreshGridLines";
+            this.btnRefreshGridLines.Size = new System.Drawing.Size(80, 31);
+            this.btnRefreshGridLines.TabIndex = 403;
+            this.btnRefreshGridLines.Text = "Atualizar";
+            this.btnRefreshGridLines.UseVisualStyleBackColor = true;
+            this.btnRefreshGridLines.Visible = false;
+            this.btnRefreshGridLines.Click += new System.EventHandler(this.btnRefreshGridLines_Click);
+            // 
+            // rbTransStockDecompose
+            // 
+            this.rbTransStockDecompose.AutoSize = true;
+            this.rbTransStockDecompose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbTransStockDecompose.Location = new System.Drawing.Point(391, 24);
+            this.rbTransStockDecompose.Name = "rbTransStockDecompose";
+            this.rbTransStockDecompose.Size = new System.Drawing.Size(107, 19);
+            this.rbTransStockDecompose.TabIndex = 402;
+            this.rbTransStockDecompose.TabStop = true;
+            this.rbTransStockDecompose.Text = "Transformação";
+            this.rbTransStockDecompose.UseVisualStyleBackColor = true;
+            this.rbTransStockDecompose.CheckedChanged += new System.EventHandler(this.rbTransStockDecompose_CheckedChanged);
+            // 
+            // rbTransStockCompose
+            // 
+            this.rbTransStockCompose.AutoSize = true;
+            this.rbTransStockCompose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbTransStockCompose.Location = new System.Drawing.Point(289, 25);
+            this.rbTransStockCompose.Name = "rbTransStockCompose";
+            this.rbTransStockCompose.Size = new System.Drawing.Size(83, 19);
+            this.rbTransStockCompose.TabIndex = 401;
+            this.rbTransStockCompose.TabStop = true;
+            this.rbTransStockCompose.Text = "Fabricação";
+            this.rbTransStockCompose.UseVisualStyleBackColor = true;
+            this.rbTransStockCompose.CheckedChanged += new System.EventHandler(this.rbTransStockCompose_CheckedChanged);
+            // 
+            // dataGridItemLines
+            // 
+            this.dataGridItemLines.AllowUserToAddRows = false;
+            this.dataGridItemLines.AllowUserToDeleteRows = false;
+            this.dataGridItemLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridItemLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.WarehouseId,
+            this.ItemId,
+            this.UnitPrice,
+            this.Qty,
+            this.Uni});
+            this.dataGridItemLines.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridItemLines.Location = new System.Drawing.Point(33, 197);
+            this.dataGridItemLines.Name = "dataGridItemLines";
+            this.dataGridItemLines.ReadOnly = true;
+            this.dataGridItemLines.Size = new System.Drawing.Size(569, 212);
+            this.dataGridItemLines.TabIndex = 399;
+            this.dataGridItemLines.Visible = false;
+            // 
+            // WarehouseId
+            // 
+            this.WarehouseId.DataPropertyName = "WarehouseID";
+            this.WarehouseId.HeaderText = "Armazem";
+            this.WarehouseId.Name = "WarehouseId";
+            this.WarehouseId.ReadOnly = true;
+            // 
+            // ItemId
+            // 
+            this.ItemId.DataPropertyName = "ItemID";
+            this.ItemId.HeaderText = "Artigo";
+            this.ItemId.Name = "ItemId";
+            this.ItemId.ReadOnly = true;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.DataPropertyName = "UnitPrice";
+            this.UnitPrice.HeaderText = "Preço";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.DataPropertyName = "Quantity";
+            this.Qty.HeaderText = "Quantidade";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            // 
+            // Uni
+            // 
+            this.Uni.DataPropertyName = "UnitOfSaleID";
+            this.Uni.HeaderText = "Uni";
+            this.Uni.Name = "Uni";
+            this.Uni.ReadOnly = true;
+            this.Uni.Width = 75;
             // 
             // txtPaymentID
             // 
@@ -3269,6 +3375,7 @@
             this.tabSupplier.PerformLayout();
             this.tabBuySaleTransaction.ResumeLayout(false);
             this.tabBuySaleTransaction.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridItemLines)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -3524,6 +3631,15 @@
         private System.Windows.Forms.TextBox txtPaymentID;
         private System.Windows.Forms.Label lblPaymentID;
         private System.Windows.Forms.ComboBox cboApplication;
+        private System.Windows.Forms.DataGridView dataGridItemLines;
+        private System.Windows.Forms.RadioButton rbTransStockCompose;
+        private System.Windows.Forms.RadioButton rbTransStockDecompose;
+        private System.Windows.Forms.Button btnRefreshGridLines;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uni;
     }
 }
 
