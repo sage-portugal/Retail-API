@@ -1134,7 +1134,7 @@ namespace Sage.Retail.API.Sample {
                 trans.WorkstationStamp.SessionID = sessionID;
                 //
 
-                if (txtTransCurrency.Text == "") {
+                if (string.IsNullOrEmpty(txtTransCurrency.Text)) {
                     trans.BaseCurrency = systemSettings.BaseCurrency;
                 }
                 else {
@@ -1441,7 +1441,7 @@ namespace Sage.Retail.API.Sample {
             ItemTransactionDetail transDetail = new ItemTransactionDetail();
             
             //Moeda dos detalhes de  documento
-            if (txtTransCurrency.Text==""){
+            if (string.IsNullOrEmpty(txtTransCurrency.Text)){
                 transDetail.BaseCurrency = systemSettings.BaseCurrency;
             }
             else {
@@ -1656,7 +1656,18 @@ namespace Sage.Retail.API.Sample {
                             throw new Exception(string.Format("Não foi possivel ler o documento [{0} {1}/{2}]", transDoc, transSerial, transDocNumber));
                         }
                         trans = bsoStockTransaction.Transaction;
-                        rbTransStock.Checked = true;
+
+                        if (doc.StockBehavior == StockBehaviorEnum.sbStockCompose) {
+                            rbTransStockCompose.Checked = true;
+                        }
+                        else {
+                            if (doc.StockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                                rbTransStockDecompose.Checked = true;
+                            }
+                            else {
+                                rbTransStock.Checked = true;
+                            }
+                        }
                         break;
 
                     default:
@@ -1671,8 +1682,17 @@ namespace Sage.Retail.API.Sample {
                 txtTransDate.Text = trans.CreateDate.ToShortDateString();
                 txtTransDoc.Text = trans.TransDocument;
                 txtTransDocNumber.Text = trans.TransDocNumber.ToString();
-                txtPaymentID.Text = trans.Payment.PaymentID.ToString();
-                txtTenderID.Text = trans.Tender.TenderID.ToString();
+
+                if (doc.TransDocType != DocumentTypeEnum.dcTypeStock) {
+                    txtPaymentID.Text = trans.Payment.PaymentID.ToString();
+                    txtTenderID.Text = trans.Tender.TenderID.ToString();
+                }
+                else {
+                    txtPaymentID.Text = string.Empty;
+                    txtTenderID.Text = string.Empty;
+                }
+                
+                
                 //
                 //ItemTransaction i; i.PaymentDiscountPercent
                 if (doc.TransDocType == DocumentTypeEnum.dcTypeSale || doc.TransDocType == DocumentTypeEnum.dcTypePurchase) {
@@ -1685,83 +1705,101 @@ namespace Sage.Retail.API.Sample {
                 }
                 txtTransPartyId.Text = trans.PartyID.ToString();
                 txtTransSerial.Text = trans.TransSerial;
+
+                double LineNumber = 0;
                 //
                 //Linha 1
                 if( trans.Details.Count>0){
-                    var transDetail = trans.Details[1];
-                    txtTransFactorL1.Text = transDetail.QuantityFactor.ToString();
-                    txtTransItemL1.Text = transDetail.ItemID;
-                    txtTransQuantityL1.Text = transDetail.Quantity.ToString();
-                    if( transDetail.TaxList.Count> 0) 
-                        txtTransTaxRateL1.Text = transDetail.TaxList[1].TaxRate.ToString();
-                    if (trans.TransactionTaxIncluded)
-                        txtTransUnitPriceL1.Text = transDetail.TaxIncludedPrice.ToString();
-                    else
-                        txtTransUnitPriceL1.Text = transDetail.UnitPrice.ToString();
-                    txtTransUnL1.Text = transDetail.UnitOfSaleID;
-                    txtTransWarehouseL1.Text = transDetail.WarehouseID.ToString();
-                    // Lote
-                    if (! string.IsNullOrEmpty(transDetail.Lot.LotID ) ) {
-                        txtTransLotExpDateL1.Text = transDetail.Lot.ExpirationDate.ToShortDateString();
-                        txtTransLotIdL1.Text = transDetail.Lot.LotID;
-                        txtTransLotEditionL1.Text = transDetail.Lot.EditionID.ToString();
-                        txtTransLotRetWeekL1.Text = transDetail.Lot.ReturnWeek.ToString();
-                        txtTransLotRetYearL1.Text = transDetail.Lot.ReturnYear.ToString();
-                        chkTransModuleLot.Checked = true;
-                    }
-                    // Cores e Tamanhos - Só na linha 1 
-                    if (transDetail.Color.ColorID > 0) {
-                        txtTransColor1.Text = transDetail.Color.ColorID.ToString();
-                        chkTransModuleSizeColor.Checked = true;
-                    }
-                    if (transDetail.Size.SizeID > 0) {
-                        txtTransSize1.Text = transDetail.Size.SizeID.ToString();
-                        chkTransModuleSizeColor.Checked = true;
-                    }
-                    // Propriedades: Números de série
-                    if (transDetail.ItemProperties.HasPropertyValues) {
-                        lblTransPropNameL1.Text = transDetail.ItemProperties.PropertyID1;
-                        txtTransPropValueL1.Text = transDetail.ItemProperties.PropertyValue1;
-                        // Também é possivel utilizar as restantes 3 propriedades. Para isso necessitariamos de outra forma de apresentar os dados (com mais controlos, p.ex.)
-                        //lblTransPropNameL1_2.Text = transDetail.ItemProperties.PropertyID2;
-                        //txtTransPropValueL1_2.Text = transDetail.ItemProperties.PropertyValue2;
-                        //lblTransPropNameL1_3.Text = transDetail.ItemProperties.PropertyID3;
-                        //txtTransPropValueL1_3.Text = transDetail.ItemProperties.PropertyValue3;
+                    LineNumber = getLineNumberTotxtTransItemL(1, doc.TransDocType, doc.StockBehavior, trans.Details);
 
-                        chkTransModuleProps.Checked  = true;
+                    if (LineNumber!= 0){
+                        var transDetail = trans.Details[LineNumber];
+
+                        txtTransFactorL1.Text = transDetail.QuantityFactor.ToString();
+                        txtTransItemL1.Text = transDetail.ItemID;
+                        txtTransQuantityL1.Text = transDetail.Quantity.ToString();
+                        if( transDetail.TaxList.Count> 0) 
+                            txtTransTaxRateL1.Text = transDetail.TaxList[1].TaxRate.ToString();
+                        if (trans.TransactionTaxIncluded)
+                            txtTransUnitPriceL1.Text = transDetail.TaxIncludedPrice.ToString();
+                        else
+                            txtTransUnitPriceL1.Text = transDetail.UnitPrice.ToString();
+                        txtTransUnL1.Text = transDetail.UnitOfSaleID;
+                        txtTransWarehouseL1.Text = transDetail.WarehouseID.ToString();
+                        // Lote
+                        if (! string.IsNullOrEmpty(transDetail.Lot.LotID ) ) {
+                            txtTransLotExpDateL1.Text = transDetail.Lot.ExpirationDate.ToShortDateString();
+                            txtTransLotIdL1.Text = transDetail.Lot.LotID;
+                            txtTransLotEditionL1.Text = transDetail.Lot.EditionID.ToString();
+                            txtTransLotRetWeekL1.Text = transDetail.Lot.ReturnWeek.ToString();
+                            txtTransLotRetYearL1.Text = transDetail.Lot.ReturnYear.ToString();
+                            chkTransModuleLot.Checked = true;
+                        }
+                        // Cores e Tamanhos - Só na linha 1 
+                        if (transDetail.Color.ColorID > 0) {
+                            txtTransColor1.Text = transDetail.Color.ColorID.ToString();
+                            chkTransModuleSizeColor.Checked = true;
+                        }
+                        if (transDetail.Size.SizeID > 0) {
+                            txtTransSize1.Text = transDetail.Size.SizeID.ToString();
+                            chkTransModuleSizeColor.Checked = true;
+                        }
+                        // Propriedades: Números de série
+                        if (transDetail.ItemProperties.HasPropertyValues) {
+                            lblTransPropNameL1.Text = transDetail.ItemProperties.PropertyID1;
+                            txtTransPropValueL1.Text = transDetail.ItemProperties.PropertyValue1;
+                            // Também é possivel utilizar as restantes 3 propriedades. Para isso necessitariamos de outra forma de apresentar os dados (com mais controlos, p.ex.)
+                            //lblTransPropNameL1_2.Text = transDetail.ItemProperties.PropertyID2;
+                            //txtTransPropValueL1_2.Text = transDetail.ItemProperties.PropertyValue2;
+                            //lblTransPropNameL1_3.Text = transDetail.ItemProperties.PropertyID3;
+                            //txtTransPropValueL1_3.Text = transDetail.ItemProperties.PropertyValue3;
+
+                            chkTransModuleProps.Checked = true;
+                        }
                     }
 
                     // Linha 2 - Não tem cores e tamanhos 
                     if (trans.Details.Count > 1) {
-                        transDetail = trans.Details[2];
-                        txtTransFactorL2.Text = transDetail.QuantityFactor.ToString();
-                        txtTransItemL2.Text = transDetail.ItemID;
-                        txtTransQuantityL2.Text = transDetail.Quantity.ToString();
-                        if(transDetail.TaxList.Count>0)
-                            txtTransTaxRateL2.Text = transDetail.TaxList[1].TaxRate.ToString();
-                        if (trans.TransactionTaxIncluded)
-                            txtTransUnitPriceL2.Text = transDetail.TaxIncludedPrice.ToString();
-                        else
-                            txtTransUnitPriceL2.Text = transDetail.UnitPrice.ToString();
-                        txtTransUnL2.Text = transDetail.UnitOfSaleID;
-                        txtTransWarehouseL2.Text = transDetail.WarehouseID.ToString();
-                        // Lote
-                        if ( ! string.IsNullOrEmpty(transDetail.Lot.LotID) ) {
-                            txtTransLotExpDateL2.Text = transDetail.Lot.ExpirationDate.ToShortDateString();
-                            txtTransLotIdL2.Text = transDetail.Lot.LotID;
-                            txtTransLotEditionL2.Text = transDetail.Lot.EditionID.ToString();
-                            txtTransLotRetWeekL2.Text = transDetail.Lot.ReturnWeek.ToString();
-                            txtTransLotRetYearL2.Text = transDetail.Lot.ReturnYear.ToString();
+                        LineNumber = getLineNumberTotxtTransItemL(2, doc.TransDocType, doc.StockBehavior, trans.Details);
+                        
+                        if (LineNumber != 0) {
+                            var transDetail = trans.Details[LineNumber];
 
-                            chkTransModuleLot.Checked = true;
-                        }
-                        // Propriedades: Números de série
-                        if (transDetail.ItemProperties.HasPropertyValues) {
-                            lblTransPropNameL2.Text = transDetail.ItemProperties.PropertyID1;
-                            txtTransPropValueL2.Text = transDetail.ItemProperties.PropertyValue1;
+                            txtTransFactorL2.Text = transDetail.QuantityFactor.ToString();
+                            txtTransItemL2.Text = transDetail.ItemID;
+                            txtTransQuantityL2.Text = transDetail.Quantity.ToString();
+                            if (transDetail.TaxList.Count > 0)
+                                txtTransTaxRateL2.Text = transDetail.TaxList[1].TaxRate.ToString();
+                            if (trans.TransactionTaxIncluded)
+                                txtTransUnitPriceL2.Text = transDetail.TaxIncludedPrice.ToString();
+                            else
+                                txtTransUnitPriceL2.Text = transDetail.UnitPrice.ToString();
+                            txtTransUnL2.Text = transDetail.UnitOfSaleID;
+                            txtTransWarehouseL2.Text = transDetail.WarehouseID.ToString();
+                            // Lote
+                            if (!string.IsNullOrEmpty(transDetail.Lot.LotID)) {
+                                txtTransLotExpDateL2.Text = transDetail.Lot.ExpirationDate.ToShortDateString();
+                                txtTransLotIdL2.Text = transDetail.Lot.LotID;
+                                txtTransLotEditionL2.Text = transDetail.Lot.EditionID.ToString();
+                                txtTransLotRetWeekL2.Text = transDetail.Lot.ReturnWeek.ToString();
+                                txtTransLotRetYearL2.Text = transDetail.Lot.ReturnYear.ToString();
 
-                            chkTransModuleProps.Checked = true;
+                                chkTransModuleLot.Checked = true;
+                            }
+                            // Propriedades: Números de série
+                            if (transDetail.ItemProperties.HasPropertyValues) {
+                                lblTransPropNameL2.Text = transDetail.ItemProperties.PropertyID1;
+                                txtTransPropValueL2.Text = transDetail.ItemProperties.PropertyValue1;
+
+                                chkTransModuleProps.Checked = true;
+                            }
                         }
+                    }
+
+                    //Fabricação/Transformação - restantes linhas
+                    if (doc.StockBehavior == StockBehaviorEnum.sbStockCompose || doc.StockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                        fillComponentListGrid (doc.StockBehavior, trans.Details);
+
                     }
                 }
                 //
@@ -1808,12 +1846,27 @@ namespace Sage.Retail.API.Sample {
                 }
             }
             else {
-                var docs = systemSettings.WorkstationInfo.Document.FindByNature(TransactionNatureEnum.Stock_Release);
+                TransactionNatureEnum StockTransactionNatureId = 0;
+                if (rbTransStock.Checked) {
+                    StockTransactionNatureId = TransactionNatureEnum.Stock_Release;
+                    }
+                else {
+                    if (rbTransStockCompose.Checked) {
+                        StockTransactionNatureId = TransactionNatureEnum.Stock_ProductionCompose;    
+                    }
+                    else {
+                        if (rbTransStockDecompose.Checked) {
+                            StockTransactionNatureId = TransactionNatureEnum.Stock_ProductionDecompose;
+                        }
+                    }
+                }
+                var docs = systemSettings.WorkstationInfo.Document.FindByNature(StockTransactionNatureId);
                 if (docs.Count > 0) {
                     var doc = docs.get_ItemByIndex(1);
                     docId = doc.DocumentID;
                     chkTransTaxIncluded.Checked = doc.TaxIncludedPrice;
                 }
+                
                 // partyTye = Nenhum
                 cmbTransPartyType.SelectedIndex = 2;
             }
@@ -2040,7 +2093,15 @@ namespace Sage.Retail.API.Sample {
             while (transStock.Details.Count > 0) {
                 transStock.Details.Remove(ref i);
             }
-
+            StockQtyRuleEnum StockQtyRule = StockQtyRuleEnum.stkQtyNone;
+            if (bsoStockTransaction.Transaction.TransStockBehavior == StockBehaviorEnum.sbStockCompose) {
+                StockQtyRule = StockQtyRuleEnum.stkQtyReceipt;
+            }
+            else {
+                if (bsoStockTransaction.Transaction.TransStockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                    StockQtyRule = StockQtyRuleEnum.stkQtyOutgoing;
+                }
+            }
             //
             //Linha 1
             string itemId = txtTransItemL1.Text;
@@ -2050,8 +2111,19 @@ namespace Sage.Retail.API.Sample {
                 double taxRate = txtTransTaxRateL1.Text.ToDouble();
                 double qty = txtTransQuantityL1.Text.ToDouble();
                 double unitPrice = txtTransUnitPriceL1.Text.ToDouble();
-                StockQtyRuleEnum StockQtyRule1 = StockHelper.TransGetStockQtyRule(cmbStockQtyRuleL1.SelectedIndex);
-                TransStockAddDetail(wareHouseId, itemId, unitOfMovId, taxRate, qty, unitPrice, StockQtyRule1);
+                TransStockAddDetail(wareHouseId, itemId, unitOfMovId, taxRate, qty, unitPrice, StockQtyRule);
+
+                if (bsoStockTransaction.Transaction.TransStockBehavior == StockBehaviorEnum.sbStockCompose || bsoStockTransaction.Transaction.TransStockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                    var itemDetails = GetItemComponentList(1);
+                    if (itemDetails != null) {
+                        
+                        foreach (ItemTransactionDetail value in itemDetails) {
+                            TransStockAddDetail(wareHouseId, value.ItemID, value.UnitOfSaleID, taxRate, value.Quantity, value.UnitPrice, value.PhysicalQtyRule);
+                        }
+                    }
+                }
+
+
             }
             //
             // Linha 2
@@ -2062,8 +2134,18 @@ namespace Sage.Retail.API.Sample {
                 double taxRate = txtTransTaxRateL2.Text.ToDouble();
                 double qty = txtTransQuantityL2.Text.ToDouble();
                 double unitPrice = txtTransUnitPriceL2.Text.ToDouble();
-                StockQtyRuleEnum StockQtyRule2 =  StockHelper.TransGetStockQtyRule(cmbStockQtyRuleL2.SelectedIndex);
-                TransStockAddDetail(wareHouseId, itemId, unitOfMovId, taxRate, qty, unitPrice, StockQtyRule2);
+                TransStockAddDetail(wareHouseId, itemId, unitOfMovId, taxRate, qty, unitPrice, StockQtyRule);
+
+                if (bsoStockTransaction.Transaction.TransStockBehavior == StockBehaviorEnum.sbStockCompose || bsoStockTransaction.Transaction.TransStockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                    var itemDetails = GetItemComponentList(2);
+                    if (itemDetails != null) {
+
+                        foreach (ItemTransactionDetail value in itemDetails) {
+                            TransStockAddDetail(wareHouseId, value.ItemID, value.UnitOfSaleID, taxRate, value.Quantity, value.UnitPrice, value.PhysicalQtyRule);
+                        }
+                    }
+                }
+
             }
             //
             if (bsoStockTransaction.Transaction.Details.Count == 0) {
@@ -2777,6 +2859,8 @@ namespace Sage.Retail.API.Sample {
             tabTransModules.Visible = false;
             lblTransModules.Visible = false;
             txtTransGlobalDiscount.Enabled = false;
+            dataGridItemLines.Visible = false;
+            btnRefreshGridLines.Visible = false;
             //
             TransactionClear();
         }
@@ -2785,6 +2869,8 @@ namespace Sage.Retail.API.Sample {
             tabTransModules.Visible = true;
             lblTransModules.Visible = true;
             txtTransGlobalDiscount.Enabled = true;
+            dataGridItemLines.Visible = false;
+            btnRefreshGridLines.Visible = false;
             //
             TransactionClear();
         }
@@ -3279,55 +3365,227 @@ namespace Sage.Retail.API.Sample {
 
         }
 
-        private void button3_Click(object sender, EventArgs e) {
+        private ItemTransactionDetailList GetItemComponentList(int LineID) {
+            var itemDetails = new ItemTransactionDetailList();
+            string itemID = string.Empty;
+            double Quantity = 0;
+            string UnitOfSaleID = string.Empty;
+            double UnitPrice = 0;
+            short  WarehouseID = 0;
+            
             CurrencyDefinition currency = new CurrencyDefinition();
 
             var doc = systemSettings.WorkstationInfo.Document[txtTransDoc.Text];
-            //ItemTransactionDetailList itemDetails = new ItemTransactionDetailList();
             ItemTransactionDetail itemComponent = new ItemTransactionDetail();
             ItemTransactionDetail StockTransactionDetail = new ItemTransactionDetail();
-            
-            dataGridView2.Rows.Clear();
 
-            if (txtTransCurrency.Text == "") {
+            if (string.IsNullOrEmpty(txtTransCurrency.Text )) {
                 currency = systemSettings.BaseCurrency;
             }
             else {
-                
+
                 currency = dsoCache.CurrencyProvider.GetCurrency(txtTransCurrency.Text);
                 if (currency == null) {
-                //    throw new Exception(string.Format("A moeda[{0}] não existe.", txtTransCurrency.Text));
-                //}
-                //else {
-                //    currency = dsoCache.CurrencyProvider.GetCurrency(txtTransCurrency.Text);
+                    currency = systemSettings.BaseCurrency;
                 }
             }
 
-            var item = itemProvider.GetItem(txtTransItemL1.Text.Trim(), systemSettings.BaseCurrency, false);
+            switch (LineID) {
+                case 1:
+                    itemID = txtTransItemL1.Text.Trim();
+                    Quantity = txtTransQuantityL1.Text.ToDouble();
+                    UnitOfSaleID = txtTransUnL1.Text;
+                    UnitPrice = txtTransUnitPriceL1.Text.ToDouble();
+                    WarehouseID = txtTransWarehouseL1.Text.ToShort();
+
+                    break;
+                case 2:
+                    itemID = txtTransItemL2.Text.Trim();
+                    Quantity = txtTransQuantityL2.Text.ToDouble();
+                    UnitOfSaleID = txtTransUnL2.Text;
+                    UnitPrice = txtTransUnitPriceL2.Text.ToDouble();
+                    WarehouseID = txtTransWarehouseL2.Text.ToShort();
+
+                    break;
+
+            }
+
+
+            var item = itemProvider.GetItem(itemID, currency, false);
             if (item != null) {
                 if (item.ItemType == ItemTypeEnum.itmManufactured) {
-                    if (doc.StockBehavior == StockBehaviorEnum.sbStockCompose  || doc.StockBehavior == StockBehaviorEnum.sbStockCompose)
-                        {
-                        string strPriceTag = doc.DefaultPrice.Substring(0, 3);// "PVP";//Mid$(SystemSettings.WorkstationInfo.Document(.TransDocument).DefaultPrice, 1, 3)
-                        short intSalePriceLevel = 1;// doc.DefaultPrice.Substring(3, 1).ToShort();//Mid$(SystemSettings.WorkstationInfo.Document(.TransDocument).DefaultPrice, 4)
-                        StockTransactionDetail.ItemID = item.ItemID;
-                        StockTransactionDetail.Quantity = txtTransQuantityL1.Text.ToDouble();
+                    if (doc.StockBehavior == StockBehaviorEnum.sbStockCompose || doc.StockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                        string strPriceTag = doc.DefaultPrice.Substring(0, 3);// "PVP"
+                        short intSalePriceLevel = doc.DefaultPrice.Substring(3, 1).ToShort();
 
-                        var itemDetails = bsoStockTransaction.BSOCommonTransaction.GetComponentList(StockTransactionDetail, item.ItemCollection, StockTransactionDetail.Quantity, StockTransactionDetail.ItemExtraInfo.NeededComponents, StockTransactionDetail.ItemExtraInfo.UseComponentPrices, StockTransactionDetail.ItemExtraInfo.UseComponentPriceLineID, strPriceTag, intSalePriceLevel, 0);
-                        if (itemDetails != null) {
-                            foreach (ItemTransactionDetail value in itemDetails) 
-                            {
-                                this.dataGridView2.Rows.Add(txtTransWarehouseL1.Text.ToDouble(), value.ItemID, value.UnitPrice, value.Quantity, txtTransTaxRateL1.Text.ToDouble(), value.UnitOfSaleID, txtTransFactorL1.Text.ToDouble());
-                            }
-                            //        blnHaveComponents = False
+                        bsoStockTransaction.BSOCommonTransaction.TransactionType = DocumentTypeEnum.dcTypeStock;
+
+                        StockTransactionDetail.ItemID = itemID;
+                        StockTransactionDetail.Quantity = Quantity;
+                        StockTransactionDetail.UnitOfSaleID = UnitOfSaleID;
+                        StockTransactionDetail.UnitPrice = UnitPrice;
+                        StockTransactionDetail.WarehouseOutgoing = WarehouseID;
+                        StockTransactionDetail.WarehouseReceipt = WarehouseID;
+                        StockTransactionDetail.WarehouseID = WarehouseID;
+
+
+                        if (doc.StockBehavior == StockBehaviorEnum.sbStockCompose) {
+                            bsoStockTransaction.BSOCommonTransaction.TransactionStockBehavior = StockBehaviorEnum.sbStockCompose;
+                            bsoStockTransaction.BSOCommonTransaction.TransactionPhysicalQtyRule = StockQtyRuleEnum.stkQtyReceipt;
+                            StockTransactionDetail.PhysicalQtyRule = StockQtyRuleEnum.stkQtyReceipt;
                         }
+                        else {
+                            if (doc.StockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                                bsoStockTransaction.BSOCommonTransaction.TransactionStockBehavior = StockBehaviorEnum.sbStockDecompose;
+                                bsoStockTransaction.BSOCommonTransaction.TransactionPhysicalQtyRule = StockQtyRuleEnum.stkQtyOutgoing;
+                                StockTransactionDetail.PhysicalQtyRule = StockQtyRuleEnum.stkQtyOutgoing;
+                            }
+                        }
+
+                        itemDetails = bsoStockTransaction.BSOCommonTransaction.GetComponentList(StockTransactionDetail, item.ItemCollection, StockTransactionDetail.Quantity, StockTransactionDetail.ItemExtraInfo.NeededComponents, StockTransactionDetail.ItemExtraInfo.UseComponentPrices, StockTransactionDetail.ItemExtraInfo.UseComponentPriceLineID, strPriceTag, intSalePriceLevel, 0);
+
+                    }
                 }
-                //    End If
-                //End If
+            }
+            return itemDetails;
+        }
+
+        private void addComponentListToGrid(ItemTransactionDetailList ComponentList) {
+            if (ComponentList != null) {
+                foreach (ItemTransactionDetail value in ComponentList) {
+                    var rowIndex = this.dataGridItemLines.Rows.Add(txtTransWarehouseL1.Text.ToDouble(),
+                                                value.ItemID, value.UnitPrice,
+                                                value.Quantity,
+                                                value.UnitOfSaleID);
+                    dataGridItemLines.Rows[rowIndex].Tag = value;
                 }
             }
 
+        }
 
+        private void rbTransStockCompose_CheckedChanged(object sender, EventArgs e) {
+            tabTransModules.Visible = false;
+            lblTransModules.Visible = false;
+            txtTransGlobalDiscount.Enabled = false;
+            dataGridItemLines.Visible = true;
+            btnRefreshGridLines.Visible = true;
+            dataGridItemLines.Rows.Clear();
+            //
+            TransactionClear();
+
+        }
+
+        private void rbTransStockDecompose_CheckedChanged(object sender, EventArgs e) {
+            tabTransModules.Visible = false;
+            lblTransModules.Visible = false;
+            txtTransGlobalDiscount.Enabled = false;
+            dataGridItemLines.Visible = true;
+            btnRefreshGridLines.Visible = true;
+            dataGridItemLines.Rows.Clear();
+            //
+            TransactionClear();
+
+        }
+
+        private void btnRefreshGridLines_Click(object sender, EventArgs e) {
+            string transDoc = txtTransDoc.Text;
+
+            if (!systemSettings.WorkstationInfo.Document.IsInCollection(transDoc)) {
+                throw new Exception("O documento não se encontra preenchido ou não existe");
+            }
+            Document doc = systemSettings.WorkstationInfo.Document[transDoc];
+
+            if (doc.TransDocType != DocumentTypeEnum.dcTypeStock) {
+                throw new Exception(string.Format("O documento indicado não é um documento de stock", transDoc));
+            }
+
+            if (doc.StockBehavior == StockBehaviorEnum.sbStockCompose || doc.StockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                dataGridItemLines.Rows.Clear();
+
+                var itemDetails = GetItemComponentList(1);
+                addComponentListToGrid (itemDetails);
+
+                itemDetails = GetItemComponentList(2);
+                addComponentListToGrid(itemDetails);
+            }
+                else
+                {
+                    throw new Exception(string.Format("O documento indicado não é um documento de fabricação/transformação", transDoc));
+                }
+            }
+
+        private double getLineNumberTotxtTransItemL(int TransItemL, DocumentTypeEnum TransDocType, StockBehaviorEnum StockBehavior, ItemTransactionDetailList itemDetails) {
+            double result = 0;
+            int foundlines = 0;
+
+            if (itemDetails != null) {
+                if (TransDocType == DocumentTypeEnum.dcTypeStock) {
+                    if (StockBehavior == StockBehaviorEnum.sbStockCompose) {
+                        foreach (ItemTransactionDetail value in itemDetails) {
+                            if (value.PhysicalQtyRule == StockQtyRuleEnum.stkQtyReceipt) {
+                                ++foundlines;
+                                if (foundlines == TransItemL) {
+                                    result = value.LineItemID;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        if (StockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                            foreach (ItemTransactionDetail value in itemDetails) {
+                                if (value.PhysicalQtyRule == StockQtyRuleEnum.stkQtyOutgoing) {
+                                    ++foundlines;
+                                    if (foundlines == TransItemL) {
+                                        result = value.LineItemID;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                           result = TransItemL;
+                        }
+                    }
+                }
+                else {
+                    result = TransItemL;
+                }
+            }
+            else {
+                result = 0;
+            }
+
+            return result;
+        }
+
+        private void fillComponentListGrid(StockBehaviorEnum StockBehavior, ItemTransactionDetailList itemDetails) {
+            dataGridItemLines.Rows.Clear();
+
+            if (StockBehavior == StockBehaviorEnum.sbStockCompose) {
+                foreach (ItemTransactionDetail value in itemDetails) {
+                    if (value.PhysicalQtyRule == StockQtyRuleEnum.stkQtyOutgoing) {
+                        var rowIndex = this.dataGridItemLines.Rows.Add(value.WarehouseID,
+                                                    value.ItemID, value.UnitPrice,
+                                                    value.Quantity,
+                                                    value.UnitOfSaleID);
+                        dataGridItemLines.Rows[rowIndex].Tag = value;
+                    }
+                }
+            }
+            else {
+                if (StockBehavior == StockBehaviorEnum.sbStockDecompose) {
+                    foreach (ItemTransactionDetail value in itemDetails) {
+                        if (value.PhysicalQtyRule == StockQtyRuleEnum.stkQtyReceipt ) {
+                            var rowIndex = this.dataGridItemLines.Rows.Add(value.WarehouseID,
+                                                        value.ItemID, value.UnitPrice,
+                                                        value.Quantity,
+                                                        value.UnitOfSaleID);
+                            dataGridItemLines.Rows[rowIndex].Tag = value;
+                        }
+                    }
+                }
+            }
         }
     }
 }

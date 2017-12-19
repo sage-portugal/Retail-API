@@ -44,16 +44,6 @@ namespace Sage.Retail.API.Sample {
             return result;
         }
 
-
-        internal static StockQtyRuleEnum TransGetStockQtyRule(int SelectedIndex) {
-            switch (SelectedIndex) {
-                case 0: return StockQtyRuleEnum.stkQtyNone;
-                case 1: return StockQtyRuleEnum.stkQtyReceipt;
-                case 2: return StockQtyRuleEnum.stkQtyOutgoing;
-
-                default: return StockQtyRuleEnum.stkQtyNone;
-            }
-        }
         #endregion
     }
 }
