@@ -9,7 +9,7 @@ using System.Text;
 namespace RTLExtenderSample {
     class CustomerHandler : IDisposable {
         private ExtenderEvents myEvents = null;
-
+        
         public void SetEventHandler(ExtenderEvents e) {
             myEvents = e;
 
@@ -84,7 +84,7 @@ namespace RTLExtenderSample {
         /// </param>
         void myEvents_OnLoad(object Sender, ExtenderEventArgs e) {
             var  Customer = ( Customer)e.get_data();
-
+            
             // Customer.Description = "My description";
 
             //e.result.Success = false;
@@ -196,14 +196,20 @@ namespace RTLExtenderSample {
 
             e.result.Success = true;
 
-            var extraFields = MyApp.DSOCache.ConfExtraFieldsProvider.GetConfExtraFieldList("Customer");
-            foreach ( ConfExtraFields extraField in extraFields) {
-                if (Customer.PartyInfo.ExtraFields.Find((int) extraField.ExtraFieldID) == null) {
-                    e.result.Success = false;
-                    e.result.ResultMessage = string.Format( "Campo extra {0} não está preenchido", extraField.Description) ;
-                    break;
-                }
+            if (string.IsNullOrEmpty(Customer.FederalTaxId))
+            {
+                e.result.ResultMessage = "Indique o NIF!";
+                e.result.Success = false;
             }
+
+            //var extraFields = MyApp.DSOCache.ConfExtraFieldsProvider.GetConfExtraFieldList("Customer");
+            //foreach ( ConfExtraFields extraField in extraFields) {
+            //    if (Customer.PartyInfo.ExtraFields.Find((int) extraField.ExtraFieldID) == null) {
+            //        e.result.Success = false;
+            //        e.result.ResultMessage = string.Format( "Campo extra {0} não está preenchido", extraField.Description) ;
+            //        break;
+            //    }
+            //}
 
 
             //var extraField = Customer.PartyInfo.ExtraFields.Find(2);

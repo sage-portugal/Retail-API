@@ -162,7 +162,9 @@ namespace RTLExtenderSample {
         /// <param name="Sender">ExtensibilityController</param>
         /// <param name="e">Event parameters</param>
         void myEvents_OnNew(object Sender, ExtenderEventArgs e) {
-            //var item = (Item)e.get_data();
+            var item = (Item)e.get_data();
+            item.ShortDescription = "Texto automático!";
+
             //item.Description = "bla bla";
 
             //e.result.ResultMessage = "Alterei a descrição de um artigo novo";

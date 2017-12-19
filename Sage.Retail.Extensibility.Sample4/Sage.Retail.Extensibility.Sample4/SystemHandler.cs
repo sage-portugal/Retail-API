@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RTLExtenderSample {
-    internal class SystemHandler : IDisposable {
+namespace RTLExtenderSample
+{
+    internal class SystemHandler : IDisposable
+    {
         // System events handler
         private ExtenderSystemEvents myEvents = null;
         //
@@ -15,11 +17,12 @@ namespace RTLExtenderSample {
         private static IWorkspaceWindow generalWorkspaceWindow = null;
         private static IDialogWindow generalDialogWindow = null;
 
-        public static IChildWindow GeneralChildWindow { get{ return generalChildWindow ;} }
+        public static IChildWindow GeneralChildWindow { get { return generalChildWindow; } }
         public static IWorkspaceWindow GeneralWorkspaceWindow { get { return generalWorkspaceWindow; } }
         public static IDialogWindow GeneralDialogWindow { get { return GeneralDialogWindow; } }
 
-        public void SetEventHandler(ExtenderSystemEvents e) {
+        public void SetEventHandler(ExtenderSystemEvents e)
+        {
             myEvents = e;
             //
             // 1. Menu de utilizador
@@ -29,28 +32,32 @@ namespace RTLExtenderSample {
             myEvents.OnDispose += MyEvents_OnDispose;
         }
 
-        private void MyEvents_OnStartup(object Sender, ExtenderEventArgs e) {
+        private void MyEvents_OnStartup(object Sender, ExtenderEventArgs e)
+        {
             ExtendedPropertyList properties = null; ;
-            ExtenderMenuItems       menuItem;
+            ExtenderMenuItems menuItem;
 
             //MyApp.SystemSettings.WorkstationInfo.Touch.CompanyLogoPosition = 1;
 
             properties = (ExtendedPropertyList)e.get_data();
 
             //this property will only be available in the backoffice
-            if (properties.PropertyExists("ChildWindow") ) {
+            if (properties.PropertyExists("ChildWindow"))
+            {
                 generalChildWindow = (IChildWindow)properties.get_Value("ChildWindow");
             }
             //this property will only be available in the backoffice
-            if (properties.PropertyExists("WorkspaceWindow") ) {
+            if (properties.PropertyExists("WorkspaceWindow"))
+            {
                 generalWorkspaceWindow = (IWorkspaceWindow)properties.get_Value("WorkspaceWindow");
             }
             //this property will be available in both backoffice and frontoffice
-            if (properties.PropertyExists("DialogWindow")) {
+            if (properties.PropertyExists("DialogWindow"))
+            {
                 generalDialogWindow = (IDialogWindow)properties.get_Value("DialogWindow");
             }
 
-            
+
             // CUSTOM MENUS
             // Definir os menus
             menuItem = new ExtenderMenuItems();
@@ -72,28 +79,33 @@ namespace RTLExtenderSample {
             menuItem = null;
         }
 
-        private void MyEvents_OnDispose() {
+        private void MyEvents_OnDispose()
+        {
             //Clean up!
         }
 
-        private void SystemEvents_OnMenuItem(object Sender, ExtenderEventArgs e) {
-            switch (e.get_data().ToString()) {
+        private void SystemEvents_OnMenuItem(object Sender, ExtenderEventArgs e)
+        {
+            switch ((string)e.get_data())
+            {
                 case "miXItem1":
                     //System.Windows.Forms.MessageBox.Show("miXitem1");
-                    var fItem =  new FormItem();
+                    var fItem = new FormItem();
                     fItem.ShowWindow();
                     break;
 
                 case "miXItem2":
                     System.Windows.Forms.MessageBox.Show("miXitem2");
                     break;
-           }
+            }
         }
 
-        private void SystemEvents_OnInitialize(object Sender, ExtenderEventArgs e) {
+        private void SystemEvents_OnInitialize(object Sender, ExtenderEventArgs e)
+        {
         }
 
-        public void Dispose() {
+        public void Dispose()
+        {
             // House cleanup
         }
     }
