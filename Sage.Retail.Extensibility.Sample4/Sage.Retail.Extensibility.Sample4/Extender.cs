@@ -12,6 +12,7 @@ namespace RTLExtenderSample {
 
         private TransactionHandler      transactionHandler = null;  // Transaction handler
         private StockHandler            stockHandler = null;        // StockTransaction handler
+        private TenderTransactionHandler tenderTransactionHandler = null;
         private ItemHandler             itemHandler = null;         // Items
         private CustomerHandler         customerHandler = null;
 
@@ -67,8 +68,13 @@ namespace RTLExtenderSample {
                     }
                     stockHandler.SetHeaderEventsHandler(EventHandler);
                     break;
-
-                    //case "confstores":  // delegações
+                case "tendertransaction":
+                    if (tenderTransactionHandler == null) {
+                        tenderTransactionHandler = new TenderTransactionHandler();
+                    }
+                    tenderTransactionHandler.SetHeaderEventsHandler(EventHandler);
+                    break;
+                //case "confstores":  // delegações
                 //    break;
 
                 //Parâmetros customizados

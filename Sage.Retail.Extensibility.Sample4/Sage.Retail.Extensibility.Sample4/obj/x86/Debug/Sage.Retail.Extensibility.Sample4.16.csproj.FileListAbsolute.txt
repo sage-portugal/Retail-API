@@ -54,3 +54,12 @@ C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail
 C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\bin\x86\Debug\Sage.Retail.Extensibility.4.16.pdb
 C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\bin\x86\Debug\Sage.Retail.Extensibility.4.16.tlb
 C:\Users\mrs\Documents\Visual Studio 2015\Projects\Retail-API-master\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.Sample4.16.csprojResolveAssemblyReference.cache
+C:\Users\mgc\Source\Repos\Retail-API\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\bin\x86\Debug\Sage.Retail.Extensibility.4.16.dll
+C:\Users\mgc\Source\Repos\Retail-API\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\bin\x86\Debug\Sage.Retail.Extensibility.4.16.pdb
+C:\Users\mgc\Source\Repos\Retail-API\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\bin\x86\Debug\Sage.Retail.Extensibility.4.16.tlb
+C:\Users\mgc\Source\Repos\Retail-API\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.Sample4.16.csproj.ResolveComReference.cache
+C:\Users\mgc\Source\Repos\Retail-API\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\RTLExtenderSample.FormItem.resources
+C:\Users\mgc\Source\Repos\Retail-API\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\RTLExtenderSample.FormProps.resources
+C:\Users\mgc\Source\Repos\Retail-API\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.Sample4.16.csproj.GenerateResource.Cache
+C:\Users\mgc\Source\Repos\Retail-API\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.4.16.dll
+C:\Users\mgc\Source\Repos\Retail-API\Sage.Retail.Extensibility.Sample4\Sage.Retail.Extensibility.Sample4\obj\x86\Debug\Sage.Retail.Extensibility.4.16.pdb

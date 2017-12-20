@@ -6,6 +6,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Program Files %28x86%29\Sage\Retail\Sage.Retail.PRTL.exe</StartProgram>
+    <StartProgram>C:\Dev\POS\SystemPOS\Retail\Source\SRC.EXE\Sage.Retail.PRTL.exe</StartProgram>
   </PropertyGroup>
 </Project>
